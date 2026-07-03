@@ -5,7 +5,7 @@ import com.food.ordering.system.order.application.mapper.OrderMapper;
 import com.food.ordering.system.order.application.query.GetOrderQuery;
 import com.food.ordering.system.order.domain.exception.OrderNotFoundException;
 import com.food.ordering.system.order.domain.model.valueobject.OrderId;
-import com.food.ordering.system.order.domain.port.out.OrderRepositoryPort;
+import com.food.ordering.system.order.domain.repository.OrderRepositoryPort;
 import com.food.ordering.system.shared.application.cqrs.QueryHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,7 @@
 package com.food.ordering.system.order.infrastructure.messaging.producer;
 
 import com.food.ordering.system.order.domain.event.OrderCreatedEvent;
-import com.food.ordering.system.order.domain.port.out.OrderEventPublisherPort;
+import com.food.ordering.system.order.domain.repository.OrderEventPublisherPort;
 import com.food.ordering.system.order.infrastructure.messaging.event.OrderCreatedKafkaEvent;
 import com.food.ordering.system.shared.domain.event.DomainEvent;
 import org.slf4j.Logger;

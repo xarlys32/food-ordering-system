@@ -2,7 +2,7 @@ package com.food.ordering.system.order.infrastructure.persistence.adapter;
 
 import com.food.ordering.system.order.domain.model.Order;
 import com.food.ordering.system.order.domain.model.valueobject.OrderId;
-import com.food.ordering.system.order.domain.port.out.OrderRepositoryPort;
+import com.food.ordering.system.order.domain.repository.OrderRepositoryPort;
 import com.food.ordering.system.order.infrastructure.persistence.mapper.OrderPersistenceMapper;
 import com.food.ordering.system.order.infrastructure.persistence.repository.OrderJpaRepository;
 import org.springframework.stereotype.Component;

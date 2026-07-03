@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.domain.port.out;
+package com.food.ordering.system.order.domain.repository;
 
 import com.food.ordering.system.shared.domain.event.DomainEvent;
 
