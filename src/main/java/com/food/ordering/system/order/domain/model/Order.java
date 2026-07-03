@@ -76,8 +76,13 @@ public class Order extends AggregateRoot {
         this.updatedAt = Instant.now();
     }
 
+    public boolean isCancellable() {
+        return this.status == OrderStatus.PENDING
+                || this.status == OrderStatus.CONFIRMED;
+    }
+
     public void cancel() {
-        if (this.status == OrderStatus.SHIPPED || this.status == OrderStatus.DELIVERED) {
+        if (!isCancellable()) {
             throw new OrderDomainException("Cannot cancel an order that is already SHIPPED or DELIVERED");
         }
         this.status = OrderStatus.CANCELLED;

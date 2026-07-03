@@ -8,6 +8,7 @@ import com.food.ordering.system.order.domain.repository.OrderEventPublisherPort;
 import com.food.ordering.system.order.domain.repository.OrderRepositoryPort;
 import com.food.ordering.system.shared.application.cqrs.CommandHandler;
 import com.food.ordering.system.shared.domain.event.DomainEvent;
+import com.food.ordering.system.shared.domain.valueobject.CustomerId;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,9 @@ public class CreateOrderCommandHandler
 
     @Override
     public OrderResponse handle(CreateOrderCommand command) {
-        Order order = Order.create(command.customerId(), command.totalAmount());
+        // La capa de aplicación traduce el String externo al Value Object del dominio
+        CustomerId customerId = CustomerId.of(command.customerId());
+        Order order = Order.create(customerId, command.totalAmount());
         Order saved = orderRepository.save(order);
 
         for (DomainEvent event : saved.getDomainEvents()) {
