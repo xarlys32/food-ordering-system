@@ -13,7 +13,7 @@ public class OrderMapper {
     public static OrderResponse toResponse(Order order) {
         return new OrderResponse(
                 order.getId().getValue(),
-                order.getCustomerId(),
+                order.getCustomerId().getValue().toString(),
                 order.getTotalAmount(),
                 order.getStatus(),
                 order.getCreatedAt()
