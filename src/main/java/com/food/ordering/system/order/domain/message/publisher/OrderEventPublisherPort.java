@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.domain.repository;
+package com.food.ordering.system.order.domain.message.publisher;
 
 import com.food.ordering.system.shared.domain.event.DomainEvent;
 

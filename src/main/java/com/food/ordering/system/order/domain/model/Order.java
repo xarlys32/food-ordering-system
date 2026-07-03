@@ -55,7 +55,7 @@ public class Order extends AggregateRoot {
     /**
      * Factory method: creates a new Order and registers the corresponding domain event.
      */
-    public static Order create(CustomerId customerId, BigDecimal totalAmount) {
+    public static Order create(String customerId, BigDecimal totalAmount) {
         if (customerId == null) {
             throw new OrderDomainException("Customer ID must not be blank");
         }

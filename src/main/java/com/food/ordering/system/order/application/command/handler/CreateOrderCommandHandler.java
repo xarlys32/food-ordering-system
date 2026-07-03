@@ -4,10 +4,11 @@ import com.food.ordering.system.order.application.command.CreateOrderCommand;
 import com.food.ordering.system.order.application.dto.response.OrderResponse;
 import com.food.ordering.system.order.application.mapper.OrderMapper;
 import com.food.ordering.system.order.domain.model.Order;
-import com.food.ordering.system.order.domain.repository.OrderEventPublisherPort;
+import com.food.ordering.system.order.domain.message.publisher.OrderEventPublisherPort;
 import com.food.ordering.system.order.domain.repository.OrderRepositoryPort;
 import com.food.ordering.system.shared.application.cqrs.CommandHandler;
 import com.food.ordering.system.shared.domain.event.DomainEvent;
+import com.food.ordering.system.shared.domain.valueobject.CustomerId;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
