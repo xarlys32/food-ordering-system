@@ -2,7 +2,7 @@ package com.food.ordering.system.order.infrastructure.messaging.producer;
 
 import com.food.ordering.system.order.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.order.domain.message.publisher.OrderEventPublisherPort;
-import com.food.ordering.system.order.infrastructure.messaging.event.OrderCreatedKafkaEvent;
+import com.food.ordering.system.order.infrastructure.messaging.event.OrderCreatedRabbitEvent;
 import com.food.ordering.system.shared.domain.event.DomainEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,23 +16,23 @@ import org.springframework.stereotype.Component;
  * Translates domain events into Kafka messages and publishes them.
  */
 @Component
-public class OrderEventKafkaProducer implements OrderEventPublisherPort {
+public class OrderEventRabbitProducer implements OrderEventPublisherPort {
 
-    private static final Logger log = LoggerFactory.getLogger(OrderEventKafkaProducer.class);
+    private static final Logger log = LoggerFactory.getLogger(OrderEventRabbitProducer.class);
 
     @Value("${kafka.topics.order-created:order.created}")
     private String orderCreatedTopic;
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public OrderEventKafkaProducer(KafkaTemplate<String, Object> kafkaTemplate) {
+    public OrderEventRabbitProducer(KafkaTemplate<String, Object> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @Override
     public void publish(DomainEvent event) {
         if (event instanceof OrderCreatedEvent orderCreated) {
-            var kafkaEvent = new OrderCreatedKafkaEvent(
+            var kafkaEvent = new OrderCreatedRabbitEvent(
                     orderCreated.getEventId(),
                     orderCreated.getEventType(),
                     orderCreated.getOccurredOn(),
