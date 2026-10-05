@@ -1,4 +1,4 @@
-# ddd-template
+# FOOD-ORDERING-SYSTEM
 
 Template base en Java + Spring Boot para modelar un modulo `Order` con enfoque **DDD + CQRS + Ports & Adapters (Hexagonal)**.
 

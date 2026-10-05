@@ -2,10 +2,11 @@ package com.food.ordering.system.shared.domain.valueobject;
 
 import java.util.UUID;
 
-public class ProductId extends ValueObject{
+public class OrderItemId extends ValueObject{
+
     private final UUID value;
 
-    public ProductId(UUID value) {
+    public OrderItemId(UUID value) {
         this.value = value;
     }
 
@@ -13,9 +14,10 @@ public class ProductId extends ValueObject{
         return value;
     }
 
+
     @Override
     public boolean equals(Object o) {
-        if (o instanceof ProductId other) {
+        if (o instanceof OrderItemId other) {
             return this.value.equals(other.value);
         }
         return false;

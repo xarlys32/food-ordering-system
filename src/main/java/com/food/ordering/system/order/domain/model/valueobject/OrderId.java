@@ -1,6 +1,7 @@
 package com.food.ordering.system.order.domain.model.valueobject;
 
 import com.food.ordering.system.shared.domain.valueobject.ValueObject;
+import lombok.Getter;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -8,6 +9,7 @@ import java.util.UUID;
 /**
  * Value Object representing the unique identifier of an Order.
  */
+@Getter
 public class OrderId extends ValueObject {
 
     private final UUID value;
@@ -27,10 +29,6 @@ public class OrderId extends ValueObject {
 
     public static OrderId of(String value) {
         return new OrderId(UUID.fromString(value));
-    }
-
-    public UUID getValue() {
-        return value;
     }
 
     @Override

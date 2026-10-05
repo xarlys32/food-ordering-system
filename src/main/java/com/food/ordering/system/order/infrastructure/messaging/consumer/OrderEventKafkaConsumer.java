@@ -1,6 +1,6 @@
 package com.food.ordering.system.order.infrastructure.messaging.consumer;
 
-import com.food.ordering.system.order.infrastructure.messaging.event.OrderCreatedRabbitEvent;
+import com.food.ordering.system.order.infrastructure.messaging.event.OrderCreatedKafka;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  * Add @KafkaListener methods for each topic/event you need to consume.
  */
 @Component
-public class OrderEventRabbitConsumer {
+public class OrderEventKafkaConsumer {
 
-    private static final Logger log = LoggerFactory.getLogger(OrderEventRabbitConsumer.class);
+    private static final Logger log = LoggerFactory.getLogger(OrderEventKafkaConsumer.class);
 
     /**
      * Example: listen to order.created events produced by another service or by this service itself
@@ -24,7 +24,7 @@ public class OrderEventRabbitConsumer {
             topics  = "${kafka.topics.order-created:order.created}",
             groupId = "${kafka.consumer.group-id:order-consumer-group}"
     )
-    public void onOrderCreated(OrderCreatedRabbitEvent event) {
+    public void onOrderCreated(OrderCreatedKafka event) {
         log.info("Received OrderCreatedKafkaEvent: orderId={}, customerId={}",
                 event.orderId(), event.customerId());
 
