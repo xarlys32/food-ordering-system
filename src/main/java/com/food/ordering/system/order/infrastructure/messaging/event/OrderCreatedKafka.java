@@ -1,9 +1,9 @@
 package com.food.ordering.system.order.infrastructure.messaging.event;
 
-import com.food.ordering.system.order.domain.event.OrderCreated;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -15,7 +15,9 @@ public record OrderCreatedKafka(
         String eventType,
         Instant occurredOn,
         UUID orderId,
-        OrderCreated order,
-        BigDecimal totalAmount
+        UUID customerId,
+        BigDecimal totalAmount,
+        List<OrderItemCreatedKafka> orderItems,
+        ProductCreatedKafka product
 ) {}
 
