@@ -4,6 +4,7 @@ import com.food.ordering.system.order.application.dto.response.OrderResponse;
 import com.food.ordering.system.shared.application.cqrs.Command;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Command to create a new Order.
@@ -11,7 +12,11 @@ import java.math.BigDecimal;
  */
 public record CreateOrderCommand(
         String customerId,
-        BigDecimal totalAmount
+        Double totalAmount,
+        String address,
+        String status,
+        List<CreateOrderItem> items
 ) implements Command<OrderResponse> {
 }
+
 

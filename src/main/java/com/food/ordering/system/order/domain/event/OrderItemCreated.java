@@ -1,6 +1,5 @@
 package com.food.ordering.system.order.domain.event;
 
-import com.food.ordering.system.order.domain.model.Product;
 
 import java.util.UUID;
 

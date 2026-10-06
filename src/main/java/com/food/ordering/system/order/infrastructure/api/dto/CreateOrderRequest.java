@@ -1,13 +1,21 @@
 package com.food.ordering.system.order.infrastructure.api.dto;
 
-import java.math.BigDecimal;
+import com.food.ordering.system.order.application.dto.response.OrderResponse;
+import com.food.ordering.system.shared.application.cqrs.Command;
+
+import java.util.List;
 
 /**
- * Inbound REST request DTO for creating an Order.
- * Belongs exclusively to the infrastructure/API layer.
+ * Command to create a new Order.
+ * Carries the intent and the data needed to fulfill it.
  */
 public record CreateOrderRequest(
         String customerId,
-        BigDecimal totalAmount
-) {}
+        Double totalAmount,
+        String address,
+        String status,
+        List<CreateOrderItemRequest> items
+) implements Command<OrderResponse> {
+}
+
 
