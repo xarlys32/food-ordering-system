@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public record OrderItemCreated(UUID orderItemId,
                                UUID orderId,
-                               Product product,
+                               ProductCreated product,
                                int quantity,
                                Double price,
                                Double subTotal) {
